@@ -1,0 +1,15 @@
+type Todo = 
+ record {
+   completed: bool;
+   completedAt: opt Time;
+   createdAt: Time;
+   id: nat;
+   "text": text;
+ };
+type Time = int;
+service : {
+  addTodo: (text) -> (nat);
+  completeTodo: (nat) -> ();
+  deleteTodo: (nat) -> ();
+  getTodos: () -> (vec Todo) query;
+}
